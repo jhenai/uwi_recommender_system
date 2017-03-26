@@ -1,0 +1,109 @@
+/* -------- font face  -------- */ 
+@font-face{
+  font-family: "abeezee";
+  src: url('../../static/fonts/ABeeZee-Regular.ttf') format('truetype');
+}
+
+html{
+  font-family: abeezee!important;
+}
+body {
+    padding-top: 50px;
+    background-color: white;
+}
+
+.modal-content{
+    width:500px;
+    margin: auto;
+}
+
+.alert-dismissable .close1,
+.alert-dismissible .close1 {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+.alert-dismissable .close2,
+.alert-dismissible .close2 {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+.alert-dismissable .close3,
+.alert-dismissible .close3 {
+  position: relative;
+  top: -2px;
+  right: -21px;
+  color: inherit;
+}
+
+.close3 {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+.close1 {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+.close2 {
+  float: right;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+}
+
+.close1:hover,
+.close1:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+
+.close3:hover,
+.close3:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
+}
+
+.modal-header .close1 {
+  margin-top: -2px;
+}
+.modal-header .close2 {
+  margin-top: -2px;
+}
+.modal-header .close3 {
+  margin-top: -2px;
+}
+

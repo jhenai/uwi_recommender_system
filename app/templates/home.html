@@ -1,0 +1,54 @@
+{% extends "main.html" %}
+
+{% block body %}
+
+    {% with messages = get_flashed_messages() %}
+	{% if messages %}
+		<div class="alert alert-success">
+			<ul class="flashes">
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+{% endwith %}
+        
+        <div class="heading">
+            <h1 class="p_header">Welcome </h1>
+            <h3 class="sub_header">{{ fname }} {{ lname }}</h3>
+        </div>
+
+        <h3>DEMO</h3>
+        <div align='center' class="dm_video_container">
+            <iframe  width="560" height="315" src="https://www.youtube.com/embed/_GuOjXYl5ew" frameborder="0" allowfullscreen></iframe>
+
+        </div>
+
+        <div>
+        <h4>Please rate our system:</h4>
+                <input type="radio" name="rating" value="1" /><span>1</span>  Poor <br>
+                <input type="radio" name="rating" value="2" /><span>2</span>  Fair <br>
+                <input type="radio" name="rating" value="3" /><span>3</span>  Good <br> 
+                <input type="radio" name="rating" value="4" /><span>4</span>  Great <br> 
+                <input type="radio" name="rating" value="5" /><span>5</span>  Excellent <br>
+            <br><button class="btn btn-default">Submit</button>
+        </div>
+        
+        <div class="mydiv" align='center'>
+        <h4>Contact Us</h4>
+        <form method="post" enctype="multipart/form-data" class="form-horizontal">
+           
+            <label>Full Name:</label><br>
+            <input type="text" id="name" name="full_name" class="form-control" style="width:300px"/><br>
+            <label>E-Mail</label><br>
+            <input type="email" id="mail" name="email" class="form-control" style="width:300px"/><br>
+            <label for="msg">Comment/Message</label><br>
+            <textarea id="msg" name="message" class="form-control" style="width:300px"></textarea><br>
+            <button type="submit" class="btn btn-default">Send</button>
+            <button type="reset" class="btn btn-default">Reset</button>
+        </form>
+        </div>
+          
+
+{% endblock %}

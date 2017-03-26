@@ -1,0 +1,101 @@
+{% extends "main.html" %}
+
+{% block body %}
+  {% with messages = get_flashed_messages() %}
+	{% if messages %}
+		<div class="alert alert-success">
+			<ul class="flashes">
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+{% endwith %}
+
+  <div>  
+  <img class="img-thumbnail" style= "max-width:250px; max-height:250px; float:left;"src= "/static/images/avatar.png">
+   
+   <div style = "float:left; display:block;height:250px;">
+      <p>
+          <dl class="dl-horizontal">
+              <dt>Name:</dt> <dd>{{fname}} {{lname}}</dd>
+              <dt>Faculty:</dt> <dd>{{faculty}}</dd>
+              <dt>Major(s):</dt> <dd>{{major}}</dd>
+              <dt>Minor(s):</dt> <dd>{{minor}}</dd>
+          </dl>
+          
+      </p>
+      </div>
+  </div>
+  <br>
+  <div style= "margin-left:25%; float:right">
+    <div style=" float:left; width:100%;text-align:left" class="container-fluid">
+       <h1>Degree Progression</h1><br/> 
+       
+        <div class="container-fluid" id="bars">
+            
+            <h3>Total credits needed to graduate</h3>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success" style="width: 35%">
+                <span class="sr-only">35% Complete (success)</span>
+              </div>
+              <div class="progress-bar progress-bar-info " style="width: 20%">
+                <span class="sr-only">20% Complete (warning)</span>
+              </div>
+              <div class="progress-bar progress-bar-warning" style="width: 10%">
+                <span class="sr-only">10% Complete (danger)</span>
+              </div>
+            </div>
+        
+        </div>
+      </div>
+      <div style=" width:100%; position: relative; float:left " class="container-fluid">
+     
+      <h1 style="text-align:left">Interests</h1><br/>
+      <form method="post">
+        <button> </button>
+      <div id ="studentinterest">
+          <ul>
+          {% for interest in interests  %}
+          
+          <input type="checkbox" name="interest" id = "checkbox_id" value={{interest[0]}} /> {{interest[0]}} <br>
+         
+          {% endfor %}
+          <input type="submit" class="btn btn-default" id="subinterests" value="Submit" name="submit"></input>
+          
+         </ul>
+              </div>
+             </form>
+             
+      
+      <div id="interests"></div>
+        <div>
+          <input type="checkbox" name="interest" id = "checkbox_id" value= '<img src="/static/images/animation.jpg" id="animation" alt="animation" class="img-rounded interest_pic" style= "width: 150px; height: 150px"'/>
+          <a href=""><img src="/static/images/business.jpg" id="business" alt="business" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/communication.jpg" id="communication" alt="communication" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/culture.jpg" id= "culture" alt="animation" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/economics.jpg" id="economics" alt="animation" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/electronics.jpg" id="electronics" alt="animation" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/geography.jpg" id="geography" alt="geography" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/history.jpg" id="history" alt="history" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/investing.jpg" id="investing"alt="investing" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/language.png" id= "language" alt="language" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/law.jpg" id="law" alt="law" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/marketing.jpg" id="marketing" alt="marketing" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/media.jpg" id="media" alt="media" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/music.jpg" id="music" alt="music" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/philosophy.jpg" id="philosophy" alt="philosophy" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/politics.jpg" id="politics" alt="politics" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/programming.jpg" id="programming" alt="programming" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/psychology.jpeg" id="psychology" alt="psychology" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/research.jpg" id="research" alt="research" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          <a href=""><img src="/static/images/science.jpg" id="science" alt="science" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
+          
+        
+          
+        </div>
+      </div>
+      </div>
+     
+  {% endblock %}

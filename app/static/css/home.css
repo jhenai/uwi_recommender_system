@@ -1,0 +1,61 @@
+body{
+    background-color: white;
+}
+
+@keyframes my{
+    0%{background-color: red;}
+    25%{background-color: orange;}
+    50%{background-color: yellow;}
+    100%{background-color: green;}
+}
+.comment{
+    padding-right:25px;
+    float:right;
+    animation-name: my;
+    animation-duration:3s;
+}
+.tit{
+    text-align: center;
+    color: blue;
+    text-shadow: 2px 2px 4px #000000;
+}
+.rating-radios-single {
+    float: right;
+    background: url('/app/static/images/star_PNG1597.png') 0 -16px no-repeat;
+}
+.rating:hover .rating-star:hover,
+  .rating:hover .rating-star:hover ~ .rating-star,
+  .rating-input:checked ~ .rating-star {
+      background-position: 0 0;
+  }
+  .rating-star,
+  .rating:hover .rating-star {
+      float: right;
+      display: block;
+      width: 16px;
+      height: 16px;
+      background: url('star.png') 0 -16px;
+  }
+/* -------- style for the navication  -------- */ 
+.nav_style{
+    background-color: #d9534f;
+    color: #fff;
+}
+.heading{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.nav_style ul li a{
+    color: #fff;
+}
+/* -------- style for the Demo video on the home page  -------- */
+.dm_video_container{
+    padding: 10px;
+    background-color: #2b2b2b;
+}
+/* -------- style for the form on home page  -------- */ 
+.form-control{
+    position: relative;
+}

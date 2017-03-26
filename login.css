@@ -1,0 +1,126 @@
+header{
+    background-color: red;
+}
+
+body{
+    background-color: blue;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 20px 0px 0px 0px;
+    overflow: hidden;
+    background-color: red;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: pink;
+}
+
+.active {
+   
+    background-color: white;
+    
+}
+
+#faded_intro:hover{
+    opacity: 0.7;
+}
+
+.active a{
+     color: red;
+}
+
+.button{
+    
+   
+
+    padding: 30px 132px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 26px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+    
+    background-color:  rgba(247, 232, 232,0.3); 
+    color: white; 
+    border: 2px solid #f44336;
+    
+   
+   
+    
+}
+
+.button:hover{
+    opacity: 1;
+    background-color: #f44336;
+    color: white; 
+}
+
+#buttons{
+    position: absolute;
+    left: 0;
+    top: 75%;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+input { 
+	width: 100%; 
+	margin-bottom: 10px; 
+	background: rgba(0,0,0,0.3);
+	border: none;
+	outline: none;
+	padding: 10px;
+	font-size: 13px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 4px;
+	box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+	-webkit-transition: box-shadow .5s ease;
+	-moz-transition: box-shadow .5s ease;
+	-o-transition: box-shadow .5s ease;
+	-ms-transition: box-shadow .5s ease;
+	transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+
+.login_button{
+  outline: 0;
+  background: #EF3B3A;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  margin: auto;
+}
+
+.login{
+    padding: 30% 0%;
+}
