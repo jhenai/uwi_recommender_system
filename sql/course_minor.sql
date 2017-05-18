@@ -47,10 +47,7 @@ insert into course_minor values ('COMP1127','Computer Science');
 insert into course_minor values ('COMP1161','Computer Science');
 insert into course_minor values ('COMP1210','Computer Science');
 insert into course_minor values ('COMP2201','Computer Science');
-insert into course_minor values ('COMP2010','Computer Science');
 insert into course_minor values ('COMP2340','Computer Science');
-insert into course_minor values ('COMP2120','Computer Science');
-insert into course_minor values ('COMP2120','Computer Science');
 insert into course_minor values ('COMP2130','Computer Science');
 insert into course_minor values ('COMP2140','Computer Science');
 insert into course_minor values ('COMP2170','Computer Science');
@@ -75,7 +72,7 @@ insert into course_minor values ('INFO3105','Information Technology');
 insert into course_minor values ('INFO3155','Information Technology');
 insert into course_minor values ('INFO3170','Information Technology');
 insert into course_minor values ('INFO3180','Information Technology');
-insert into course_minor values ('INFO3455','Information Technology');
+insert into course_minor values ('INFO3435','Information Technology');
 
 
 insert into course_minor values ('GOVT2011','Criminology');

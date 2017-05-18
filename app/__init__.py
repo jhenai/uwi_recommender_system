@@ -4,5 +4,4 @@ app.config.from_object(__name__)
 
 #db = MySQLdb.connect("localhost", "root", "", "records" )
 
-
 from app import views

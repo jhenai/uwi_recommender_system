@@ -22,10 +22,10 @@ values  ("INTLANG", "Languages"),
         ("INTLAW", "Law"),
         ("INTELEC", "Electronics"),
         ("INTSCI", "Science"),
-        ("INTINV", "Investment"),
         ("INTPYSC", "Psychology"),
         ("INTECON", "Economics"),
         ("INTPHIL", "Philosophy"),
         ("INTRESE", "Research"),
         ("INTMARK", "Marketing"), 
         ("INTGEOG", "Geography");
+        

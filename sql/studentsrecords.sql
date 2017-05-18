@@ -24,11 +24,11 @@ insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, 
 insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620075670, 'Dixon', 'Brandon', 'RyUv6dRJ', 'Social Sciences', 'Sociology', 'Software Engineering', 2);
 insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620071593, 'Willis', 'Eugene', '1PbCWtGLFl7o', 'Social Sciences', 'Social Anthropology', null, 2);
 
-insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620082073, 'Brown', 'Mary', 'hdmct67v', 'Social Sciences', 'Psychology','Information Technology', 3);
+insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620082073, 'Brown', 'Mary', 'hdmct67v', 'Social Sciences', 'Psychology', 'Information Technology', 3);
 insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620084801, 'Baker', 'Rodger', 'wxmfyx987', 'Social Sciences', 'Demography','Computer Science', 1);
 
-insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620062900, 'Clarke', 'Maxwell', 'pledn509', 'Science and Technology', 'Computer Science','Social Psychology', 2);
-insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620067290, 'Williams', 'Emily', 'nsmarw234', 'Science and Technology', 'Software Engineering','Criminology', 2);
+insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620062900, 'Clarke', 'Maxwell', 'pledn509', 'Science and Technology', 'Computer Science', 'Social Psychology', 2);
+insert into Studentrecords ( studentID, LastName, FirstName, Password, Faculty, Major, Minor, YearOfStudy) values (620067290, 'Williams', 'Emily', 'nsmarw234', 'Science and Technology', 'Software Engineering', 'Criminology', 2);
 
 
 

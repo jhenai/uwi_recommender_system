@@ -13,25 +13,38 @@
 		</div>
 	{% endif %}
 {% endwith %}
- 
-   <div class="container" style="margin-left: 30px; width: 60%; float:left">
-     <ul>
-    {% for course in interest_recommend %}
+
+
+ <div class="container" style="margin-left: 5px; width: 100%; float:left;"> 
+    <h2 align="center"> Available courses based on your interests</h2>
+    <h5 align= 'center' class="minorheading"> <strong>Only interests rated 4 and 5 will have courses displayed.</strong><br>If no courses are displayed under a heading, you either do not have the prerequisites for the courses or the courses are not offered in this semester. </h5>
+    {% for lst in division %}<div class='interestheading'>{{ lst[0] }} <span style="float:right" id ="bottom" class="glyphicon glyphicon-triangle-bottom"></span><span style="float:right" id="top" class="glyphicon glyphicon-triangle-top"></span></div>
+    {% for course,desc,grade,title in interest_recommend %}
+                {% if course in lst[1] %}
+    <div class= 'course_container'>
+ 	  <div class="course_icon" onclick ="add('{{course}}')" id='{{course}}'>
     
-    <input type="checkbox" name="recommendation" value="choice">{{course[0]}}<br>
+     <p>{{course}}</p>
+ 	  </div>
+ 	  
+    <div class= 'course_content'>
+    	<p class= 'course_desc'>
+    		<span class="course_title"> {{title}} </span> <br>
+			
+			<span class="cdesc"> {{desc}} </span>
+			<div class="pred_grade">{% for g in grade %}{{g|safe}}{% endfor %}</div>
+    	</p>
+   </div>
+    
    
+    </div>
+    
+    
+    
+    
+    {% endif %}
     {% endfor %}
- </ul>
-  </div>
-  
-  
-  <div class="container" style="float: left; border-style: dotted solid; width:35%; position: relative; margin-left: 5px">
+    {% endfor %}
     
-    <h3>Recommended Courses</h3>
-  </div>
-</div>
-
-
-   
-   
+ </div>
 {% endblock %}

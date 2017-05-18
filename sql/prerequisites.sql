@@ -1,7 +1,7 @@
 DROP TABLE IF EXISTS `prerequisites`;
 CREATE TABLE prerequisites(
-    prerequisiteID varchar(30) NOT none,
-    courseID varchar(10) NOT none, 
+    prerequisiteID varchar(30) NOT NULL,
+    courseID varchar(10) NOT NULL, 
     PRIMARY KEY (prerequisiteID, courseID)
     )ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8;
 
@@ -17,33 +17,33 @@ insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON20
 insert into prerequisites (prerequisiteID, courseID) values ('ECON1012', 'ECON2005');
 insert into prerequisites (prerequisiteID, courseID) values ('ECON1004', 'ECON2008');
 insert into prerequisites (prerequisiteID, courseID) values ('ECON2008', 'ECON2009');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2010');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2014');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2015');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2016');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2020');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2023');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2024');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON2025');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3003');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3005');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3006');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3007');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3008');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3010');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3011');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3016');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3031');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3032');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3034');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3037');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3040');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3049');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3050');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3051');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3069');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3072');
-insert into prerequisites (prerequisiteID, courseID) values ('none', 'ECON3073');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2009', 'ECON2010');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2008', 'ECON2014');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON1003', 'ECON2015');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON1004', 'ECON2016');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON1000', 'ECON2020');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON1000', 'ECON2023');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON1000', 'ECON2024');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON1012', 'ECON2025');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2008', 'ECON3003');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2000', 'ECON3005');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3006');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3007');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3008');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3010');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3011');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2000', 'ECON3016');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2008', 'ECON3031');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON3031', 'ECON3032');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON1000', 'ECON3034');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2015', 'ECON3037');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2016', 'ECON3040');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2008', 'ECON3049');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2015', 'ECON3050');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3051');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3069');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2003', 'ECON3072');
+insert into prerequisites (prerequisiteID, courseID) values ('ECON2002', 'ECON3073');
 insert into prerequisites (prerequisiteID, courseID) values ('none', 'FOUN1301');
 insert into prerequisites (prerequisiteID, courseID) values ('none', 'GOVT1000');
 insert into prerequisites (prerequisiteID, courseID) values ('none', 'GOVT1001');
@@ -776,14 +776,14 @@ values
        ('MATH3806', 'MATH2404'), ('STAT3001', 'STAT2001'), ('STAT3001', 'MATH2401'), ('STAT3002', 'MATH2404'), ('STAT3002', 'STAT2001'),
        ('STAT3003', 'STAT2001'),
        
-       ('COMP1127', null),('COMP1126', null),('COMP1161', 'COMP1126'), ('COMP1161', 'COMP1127'), ('COMP2130', 'COMP1127'),('COMP2130', 'COMP1126'),('COMP2130', 'COMP1161'),
+       ('COMP1127', 'none'),('COMP1126', 'none'),('COMP1161', 'COMP1126'), ('COMP1161', 'COMP1127'), ('COMP2130', 'COMP1127'),('COMP2130', 'COMP1126'),('COMP2130', 'COMP1161'),
        ('COMP2140', 'COMP1126'), ('COMP2140', 'COMP1127'),('COMP2140', 'COMP1161'), 
        ('COMP2170', 'COMP2140'),('COMP2190', 'COMP1126'),('COMP2190', 'COMP1127'),('COMP2190', 'COMP1161'),
        ('COMP2201', 'COMP1210'),('COMP2201', 'MATH1152'),('COMP2211', 'COMP1126'),('COMP2211', 'COMP1127'),('COMP2211', 'COMP1161'), ('COMP2211', 'COMP1210'),
        ('COMP2340', 'COMP1126'),('COMP2340', 'COMP1127'),('COMP2340', 'COMP1161'),('COMP2340', 'COMP12106'),
        ('INFO2100', 'COMP1210'),('INFO2110', 'COMP1126'),('INFO2110', 'COMP1127'),('INFO2110', 'COMP1161'),
        ('INFO2180', 'COMP1126'),('INFO2180', 'COMP1127'),('INFO2180', 'COMP1161'),('COMP3101', 'COMP2340'),
-       ('COMP3161', 'COMP1210'),('COMP3191', 'COMP2190'),('COMP3192', 'COMP3191'),('COMP3220', 'COMP2211'),('COMP3220', 'COMP2201'),
+       ('COMP3161', 'COMP2201'),('COMP3191', 'COMP2190'),('COMP3192', 'COMP3191'),('COMP3220', 'COMP2211'),('COMP3220', 'COMP2201'),
        ('COMP3652', 'COMP2211'),('COMP3702', 'COMP2201'),('COMP3801', 'COMP2340'),('COMP3801', 'COMP2140'),('COMP3901', 'COMP2140'),
        ('COMP3901', 'COMP2211'),('INFO3105', 'COMP2340'),('INFO3105', 'COMP2190'),('INFO3110', 'COMP2140'),('INFO3110', 'COMP2190'),
        ('INFO3155', 'COMP2190'),('INFO3170', 'COMP2140'),('INFO3180', 'INFO2180'),('INFO3435', 'COMP2140'),('INFO3435', 'COMP2180'),
@@ -836,4 +836,4 @@ values
        ("GGEO3231","GEOG2231"),("GGEO3231","GEOL2202"),("GGEO3232","GEOG2232"),("GGEO3332","GEOG2231"),
        ("GGEO3332","GEOG2232"),("GGEO3401","GEOL2204"),("GGEO3401","GGEO2332");
        
-       ('CHIN1001')
+  

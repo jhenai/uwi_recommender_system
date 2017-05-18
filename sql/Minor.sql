@@ -4,7 +4,7 @@ CREATE TABLE Minor(
     Credits_Needed int NOT NULL,
     PRIMARY KEY (Minor)
     )ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8;
-    
+
 insert into Minor (Minor, Credits_Needed) values ('Computer Science', 15);
 insert into Minor (Minor, Credits_Needed) values ('Information Technology', 15);
 insert into Minor (Minor, Credits_Needed) values ('Software Engineering', 15);

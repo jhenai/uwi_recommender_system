@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS `studentinterests`;
-CREATE TABLE studentinterests (
-    studentID varchar(10) NOT NULL,
-    rating int NOT NULL,
-    interestID varchar(20) NOT NULL,
-    PRIMARY KEY (studentID, interestID)
-    )ENGINE=MyISAM AUTO_INCREMENT=4080 DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `studentsinterests`;
+CREATE TABLE studentsinterests (   
+    studentID varchar(255) NOT NULL,
+    interest varchar(30) NOT NULL,
+    rating int,
+    PRIMARY KEY (studentID, interest)
+    )

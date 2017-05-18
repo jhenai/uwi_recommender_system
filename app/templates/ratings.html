@@ -1,0 +1,59 @@
+{% extends "recommendations.html" %}
+
+{% block body %}
+<div class="rec_wrapper">
+ {% with messages = get_flashed_messages() %}
+	{% if messages %}
+		<div class="alert alert-success">
+			<ul class="flashes">
+			{% for message in messages %}
+				<li>{{ message }}</li>
+			{% endfor %}
+			</ul>
+		</div>
+	{% endif %}
+{% endwith %}
+
+
+
+ <div class="container" style="margin-left: 5px; width: 100%; float:left;">
+
+ <h2>Recommended for you</h2>
+ <div align="center" class="minorheading"><h4>These are recommended based on the courses other students have completed that are recommended for you</h4> </div>
+   {% for course, ratings,desc,grades,title in recommend %}
+    <div class= 'course_container'>
+ 	  <div class="course_icon" onclick ="add('{{course}}')" id='{{course}}'>
+    <p>{{course}}</p>
+ 	  </div>
+ 	  
+    <div class= 'course_content'>
+    	<p class= 'course_desc'>
+    		<span class="course_title"> {{title}} </span><span class='thumbsup'>{{ratings}}<span class="glyphicon glyphicon-thumbs-up"></span></span> <br>
+			
+			<span class="cdesc"> {{desc}} </span>
+			<div class="pred_grade">{% for g in grade %}{{g|safe}}{% endfor %}</div>
+    	</p>
+   </div>
+    
+   
+    </div>
+    {% endfor %}
+    
+   
+  
+  
+ 
+  </div>
+
+
+  
+  
+</div>
+
+  <br>
+         <div>
+    
+      </div>
+   
+   
+{% endblock %}

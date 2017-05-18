@@ -1,54 +1,188 @@
-{% extends "main.html" %}
-
-{% block body %}
-
-    {% with messages = get_flashed_messages() %}
-	{% if messages %}
-		<div class="alert alert-success">
-			<ul class="flashes">
-			{% for message in messages %}
-				<li>{{ message }}</li>
-			{% endfor %}
-			</ul>
-		</div>
-	{% endif %}
-{% endwith %}
+{% extends "main.html" %}{% block body %}
+        <div style="float:left"><div id='takestep'> <p style="font-size: 0.7em">Take the <br><b style="font-size: 1.5em">FIRST STEP</b><br> the <br><b style="font-size: 1.5em">RIGHT STEP</b> today</p></div><div id=greytint></div>  <img src="{{url_for('static',filename='images/Achievers-Banner3.jpg')}}" id='homebanner'/>
+        </div>
         
-        <div class="heading">
-            <h1 class="p_header">Welcome </h1>
-            <h3 class="sub_header">{{ fname }} {{ lname }}</h3>
+        <div style="float:left; font-size: 4em;" class="myheading">
+            
+            <h1 class='slideanim' style="font-size: 1.3em">Welcome </h1>
+            <h3 class="sub_header slideanim">{{ fname }} {{ lname }}</h3>
         </div>
 
-        <h3>DEMO</h3>
+            <div style='height: 100vh; background-color:#ff'></div>
+  <div id='customerpanel' style=' padding-bottom: 6em; background-color:#fff'>
+  <div style='margin-left: 1.5em'>
+    <p style='font-size: 5em;line-height: 1em'><b>Undergraduates</b></p>
+    <p style='font-size: 2em; margin-bottom: 1em'>The UWI Course Recommender System assist students of all kinds. Which one are you?</p>
+  </div>
+  <div style="margin-left: 10%" class="row slideanim">
+    <div class="col-sm-4">
+      <div style='width:60%' class="panel panel-default text-center">
+        <div id='customerheads'class="panel-heading">
+          <img src="{{url_for('static',filename='images/girl.png')}}" style='margin-top:1em' class="img-circle" width='150' height='150' id='girl1'/>
+          <br><br>
+          <p>I'm <b>Jean</b></p>
+        </div>
+        <div class="panel-body" id='profiledesc'>
+          <p><strong>Faculty</strong> Science & Technology</p>
+          <p><strong>Major </strong> Computer Science</p>
+          <p><strong>Minor </strong> Psychology</p>
+          <p><i>"I need to keep track of my major and minor courses"</i></p>
+         
+        </div>
+        <div class="panel-footer">
+          
+         <a target="_blank" href="/static/images/boy.png"> <button class="btn btn-lg">Learn how <span class="glyphicon glyphicon-play-circle"></span></button> </a>
+          
+        </div>
+      </div> 
+    </div> 
+    <div class="col-sm-4">
+      <div style='width:60%' class="panel panel-default text-center">
+        <div id='customerheads' class="panel-heading">
+          <img src="{{url_for('static',filename='images/boy.png')}}" style='margin-top:1em' class="img-circle" width='150' height='150' id='boy'/>
+          <br><br>
+          <p>I'm <b>Shawn</b></p>
+        </div>
+        <div class="panel-body" id='profiledesc'>
+          <p><strong>Faculty</strong> Social Sciences </p>
+          <p><strong>Major </strong> Psychology</p>
+          <p><i>"I want to ensure I am doing the correct courses to graduate"</i></p>
+         
+        </div>
+        <div class="panel-footer">
+           
+         <a target="_blank" href="/static/images/boy.png"> <button class="btn btn-lg">Learn how <span class="glyphicon glyphicon-play-circle"></span></button> </a>
+          
+        </div>
+      </div> 
+    </div> 
+   <div class="col-sm-4">
+      <div style='width:60%' class="panel panel-default text-center">
+        <div id='customerheads' class="panel-heading">
+          <img src="{{url_for('static',filename='images/girl2.png')}}" style='margin-top:1em' class="img-circle" id='girl2'  width='150' height='150'/>
+          <br><br>
+          <p>I'm <b>Katie</b></p>
+        </div>
+        <div class="panel-body" id='profiledesc'>
+         <p><strong>Faculty</strong> Science & Technology </p>
+          <p><strong>Major </strong> Software Engineering</p>
+          <p><i>"I want to find free electives that I have the prerequisites for"</i></p>
+         
+        </div>
+        <div class="panel-footer">
+           
+         <a target="_blank" href="/static/images/boy.png"> <button class="btn btn-lg">Learn how <span class="glyphicon glyphicon-play-circle"></span></button> </a>
+          
+        </div>
+      </div> 
+    </div> 
+  </div>
+</div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <div id="walkthroughVideo">
+        <p align='right' style='font-size: 5em; margin-right: 3%'><b>Walkthrough</b></p>
         <div align='center' class="dm_video_container">
-            <iframe  width="560" height="315" src="https://www.youtube.com/embed/_GuOjXYl5ew" frameborder="0" allowfullscreen></iframe>
+            <iframe width="560" height="315" style='width:100%; height:80vh'src="https://www.youtube.com/embed/_GuOjXYl5ew" frameborder="0" allowfullscreen></iframe>
 
+        </div></div>
+       
+        <div style="float:left;"> <div id='how_does'><p style='font-size: 5em'><b> How does it work? </b></p></div> <div id=greytintst/div>  <img style='filter: grayscale(80%); opacity: 0.5;' src="{{url_for('static',filename='images/C1263-OCB-Banner-Updates_SCCI_DESIGN.jpg')}}" id='homebanner'/>
+        </div></div>
+        
+        <br><br>
+        <H2 style='padding-top: 5px'><b> The UWI Course Recommender System recommend courses based on:</b> </H2>
+        <br>
+        
+        <a href='/recommendations/'><div class='features col-sm-3 slideanim'>
+          <div class="feature_icon"> <img src="/static/images/books-stack.png"/></div>
+          <div class="feature_title"> Major/Minor</div>
+          <div class="feature_desc"><p>Recommends courses based on the student's major/minor from the database, where related courses have not yet been completed, and prerequisites have been satisfied.</p></div>
+        </div></a>
+        <a href='/foundation/'><div class='features col-sm-3 slideanim'>
+          <div class="feature_icon"> <img src="/static/images/book.png"/></div>
+          <div class="feature_title"> Foundation</div>
+          <div class="feature_desc"><p>The system will obtain the student's faculty, and displays the appropriate courses accordingly. </p></div>
+        </div></a>
+        <a href='/interest/'><div class='features col-sm-3 slideanim'>
+          <div class="feature_icon"> <img src="/static/images/thought.png"/></div>
+          <div class="feature_title"> Interest</div>
+          <div class="feature_desc"><p>This tool allows student to find the best free electives bases on their selected interest and the prerequisites they have completed.</p></div>
+        </div></a>
+        <a href='/ratings/'><div class='features col-sm-3 slideanim'>
+          <div class="feature_icon"> <img src="/static/images/like.png"/></div>
+          <div class="feature_title"> Ratings</div>
+          <div class="feature_desc"><p>Ratings recommendation tool using sentient analysis to find the courses that other students have completed and rated using collaborative filtering</p></div>
+        </div></a>
+        <a href='/search/'><div class='features col-sm-3 slideanim'>
+          <div class="feature_icon"> <img src="/static/images/search.png"/></div>
+          <div class="feature_title"> Search</div>
+          <div class="feature_desc"><p>Students are able to search for one or more courses by specifying the coursecode.</p></div>
+        </div></a>
+        <a href='/recommendations/'><div class='features col-sm-3 slideanim'>
+          <div class="feature_icon"> <img src="/static/images/exam.png"/></div>
+          <div class="feature_title"> Grades</div>
+          <div class="feature_desc"><p>Grades is an in-built function that predictes the probability of getting a certain grade on selective courses based on academic research results</p></div>
         </div>
-
-        <div>
+        
+        
+        
+       
+        
+        
+        <div id="hand" style='float:left; width: 50%'>
+           
+            <h4 align='center'>Undergraduate Handbooks (PDF)</h4>
+            <img src="{{url_for('static',filename='images/ppl.jpg')}}" style="float:left" width:'100' height='100'>
+            <div style="float:right">
+            <a href="{{url_for('static', filename='pdf/FHE Handbook 2016-2017 - Online.pdf')}}" download="FHE 2016-2017">Faculty of Humanities and Education 2016-2017</a><br><br>
+            <a href="{{url_for('static', filename='pdf/handbook_2016-2017.pdf')}}" download="FST 2016-2017">Faculty of Science and Technology 2016-2017</a><br><br>
+            <a href="{{url_for('static', filename='pdf/fssundergraduatehandbook2016-2017_20160826tt.pdf')}}" download="FSS 2016-2017">Faculty of Social Sciences 2016-2017</a><br><br>
+            </div>
+        </div>
+        <!--<div id= "rate"style='float:right;' >
         <h4>Please rate our system:</h4>
+        
                 <input type="radio" name="rating" value="1" /><span>1</span>  Poor <br>
                 <input type="radio" name="rating" value="2" /><span>2</span>  Fair <br>
                 <input type="radio" name="rating" value="3" /><span>3</span>  Good <br> 
                 <input type="radio" name="rating" value="4" /><span>4</span>  Great <br> 
                 <input type="radio" name="rating" value="5" /><span>5</span>  Excellent <br>
-            <br><button class="btn btn-default">Submit</button>
-        </div>
+            <br><button class="btn btn-danger">Submit</button><br><br>
+        </div> -->
         
-        <div class="mydiv" align='center'>
-        <h4>Contact Us</h4>
+        <div class="mydiv col-sm-6" style='float:left;  width: 40%;' align='center'>
+        <h4>Contact Us <span class="glyphicon glyphicon-envelope"></span></h4>
+    
         <form method="post" enctype="multipart/form-data" class="form-horizontal">
            
-            <label>Full Name:</label><br>
-            <input type="text" id="name" name="full_name" class="form-control" style="width:300px"/><br>
             <label>E-Mail</label><br>
             <input type="email" id="mail" name="email" class="form-control" style="width:300px"/><br>
             <label for="msg">Comment/Message</label><br>
             <textarea id="msg" name="message" class="form-control" style="width:300px"></textarea><br>
-            <button type="submit" class="btn btn-default">Send</button>
-            <button type="reset" class="btn btn-default">Reset</button>
+            <button type="submit" class="btn btn-danger">Send</button>
+            <button type="reset" class="btn btn-default">Reset</button><br><br>
         </form>
         </div>
-          
+ <div>
+        {% include "footer.html" %}  
+      </div>
 
 {% endblock %}

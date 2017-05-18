@@ -7,7 +7,8 @@ CREATE TABLE course_foundation (
      
 insert into course_foundation values ('FOUN1014','Science and Technology');
 insert into course_foundation values ('FOUN1101','Science and Technology');
+insert into course_foundation values ('FOUN1301','Science and Technology');
 insert into course_foundation values ('FOUN1013','Social Sciences');
 insert into course_foundation values ('FOUN1101','Social Sciences');
-
+insert into course_foundation values ('FOUN1201','Social Sciences');
 

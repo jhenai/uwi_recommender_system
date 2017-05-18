@@ -1,7 +1,22 @@
 {% extends "main.html" %}
 
 {% block body %}
-  {% with messages = get_flashed_messages() %}
+
+ 
+<div id="myprofile">
+  <div>  
+  <img class="img-thumbnail" style= "max-width:200px; max-height:200px; margin-left:10px;float:left;"src= "/static/images/avatar.png">
+ 
+   <div style = "height:198px;margin-bottom:3em;background-color: #373737;width:100%;color: white;margin-left:3em;">
+      <p>
+          <dl class="dl-horizontal"><br>
+              <dd class="myheading1"style=""> {{fname}} {{lname}} <br><h2>{{idnum}} </h2></dd>
+              
+          </dl>
+          
+      </p>
+      </div></div>
+       {% with messages = get_flashed_messages() %}
 	{% if messages %}
 		<div class="alert alert-success">
 			<ul class="flashes">
@@ -12,66 +27,173 @@
 		</div>
 	{% endif %}
 {% endwith %}
-
-  <div>  
-  <img class="img-thumbnail" style= "max-width:250px; max-height:250px; float:left;"src= "/static/images/avatar.png">
-   
-   <div style = "float:left; display:block;height:250px;">
-      <p>
-          <dl class="dl-horizontal">
-              <dt>Name:</dt> <dd>{{fname}} {{lname}}</dd>
-              <dt>Faculty:</dt> <dd>{{faculty}}</dd>
-              <dt>Major(s):</dt> <dd>{{major}}</dd>
-              <dt>Minor(s):</dt> <dd>{{minor}}</dd>
-          </dl>
-          
-      </p>
-      </div>
-  </div>
-  <br>
-  <div style= "margin-left:25%; float:right">
-    <div style=" float:left; width:100%;text-align:left" class="container-fluid">
-       <h1>Degree Progression</h1><br/> 
+      <div class="prostuff" style="float:left;display:inline">
+      <dt>Faculty:</dt><br> <dd><img class="img-rounded" style= "max-width:200px; max-height:200px;" src= "/static/images/{{faculty}}"></dd><br>
+              <dt>Major(s):</dt> <dd><img class="img-rounded" style= "width:180px; height:175px;" src= "/static/images/{{major}}"></dd><br>
+              {% if minor == None %}
+               <dt>Minor(s):</dt> <dd>None</dd></div>
+              {% else %}
+              <dt>Minor(s):</dt> <dd><img class="img-rounded" style= "width:180px; height:175px;" src= "/static/images/{{minor}}"></dd></div>
+              {% endif %}
+  
+      <div style= " float:left;display:inline" class="procontents">
+    <div style=" text-align:left;margin-top:0px" >
+        
+       <h1 class ="myheading1" style="text-align:left">Degree Progression</h1><br/> 
        
         <div class="container-fluid" id="bars">
-            
-            <h3>Total credits needed to graduate</h3>
-            <div class="progress">
-              <div class="progress-bar progress-bar-success" style="width: 35%">
-                <span class="sr-only">35% Complete (success)</span>
+             {% if info == True %}
+		 <div class="alert alert-success">
+		 <strong>Success!</strong> You have met the level one course completion requirement to graduate
+	     </div>
+ 	{% else %}
+	    <div class="alert alert-info alert-dismissable fade in alert-link">
+	    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    <strong>Tip!</strong> {{info|safe}}  </div>
+  	{% endif %}
+  	<br>
+  	{% if lvlcomp == True %}
+		 <div class="alert alert-success">
+		 <strong>Success!</strong> You have met the level two and three course completion requirement to graduate
+	     </div>
+ 	{% else %}
+	    <div class="alert alert-info alert-dismissable fade in alert-link">
+	    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    <strong>Tip!</strong> {{lvlcomp|safe}}  </div>
+  	{% endif %}
+            <h3>Total courses</h3>
+            <div><span> {{creditscompleted}}/{{creditsfordegree}}</span></div>
+            <div class="progress" style="width:50em">
+              <div id ='myBtn3' class="progress-bar progress-bar-danger progress-bar-striped active"style="width:{{a}}%">
+                <strong><span >{{a}}% Complete </span></strong>
               </div>
-              <div class="progress-bar progress-bar-info " style="width: 20%">
-                <span class="sr-only">20% Complete (warning)</span>
-              </div>
-              <div class="progress-bar progress-bar-warning" style="width: 10%">
-                <span class="sr-only">10% Complete (danger)</span>
-              </div>
+              
             </div>
-        
+            <h3>Selected courses</h3> 
+      
+    
+     <div id="selected">
+            {% for course in chosen_courses %}
+                    <p class='selected_courses'>  {{course}}  </p>
+           {% endfor %}
         </div>
+        <input type="submit" class="btn btn-danger" id="Edit" value="Edit Courses" style="display: inline" onclick="removeCourses()" name="Edit Courses"></input><br>
+        <form  action="/profile/" method="post">
+        <textarea id='courses_array' name='courses_array' style="display:none"> {% for course in chosen_courses %}{{course}},{% endfor %}</textarea>
+        <div id="savebut"><input type="submit" class="btn btn-default" id="submitselected" value="Save" style="display: inline"  onclick="submitselected()" name="submitselected"></input>
+ </div>
+        </form>
       </div>
+      
+   
       <div style=" width:100%; position: relative; float:left " class="container-fluid">
      
-      <h1 style="text-align:left">Interests</h1><br/>
-      <form method="post">
-        <button> </button>
-      <div id ="studentinterest">
-          <ul>
-          {% for interest in interests  %}
-          
-          <input type="checkbox" name="interest" id = "checkbox_id" value={{interest[0]}} /> {{interest[0]}} <br>
-         
-          {% endfor %}
-          <input type="submit" class="btn btn-default" id="subinterests" value="Submit" name="submit"></input>
-          
-         </ul>
-              </div>
-             </form>
-             
+      <h1 class="myheading1" style="text-align:left">Interests</h1><br/>
+     <button id="showinterests" class="btn btn-danger">Edit Interests</button>
+     
+      <form action="/profile/" method="post" >
+          <br>
+          <div id="Remove">
+                  <input type="submit" class="btn btn-danger"  value="Remove" style="display: inline" name="Remove"></input><br>
+          </div>
       
+      {% for interest in choseninterest  %}
+      
+                    <span class="interestremove ">
+                   <h4 style="margin-top:10px">{{interest}}</h4> <img src="/static/images/{{interest}}.jpg" id="interest" alt="{{interest}}" class="img-rounded interest_pic" style= "width: 150px; height: 150px; display: inline;">
+                   <input  type="checkbox" name="imageinterest" id = "imagecheckbox_id" value={{interest}} style="margin-right:10px"></input><br>
+                  </span>
+                  
+          {% endfor %}
+    
+           
+                  </form>
+                   
+               
+          
+                  <br>
+                  <br><br>
+          <div id="studentinterest" >
+      <div id ="studentinterest_form">
+      <form action="/profile/" method="post">
+          <h3>Interests</h3>
+          <ul>
+          <div class="col-sm-6">
+          <input type="checkbox" name="interest" id = "Animation" value="Animation"     /> Animation<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Animation" name="Animationrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Business" value="Business"     /> Business<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Business" name="Businessrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Communication" value="Communication"       /> Communication<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Communication" name="Communicationrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Culture" value="Culture"     /> Culture<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Culture" name="Culturerange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Economics" value="Economics"    /> Economics<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Economics" name="Economicsrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Electronics" value="Electronics"     /> Electronics<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Electronics" name="Electronicsrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Geography" value="Geography"    /> Geography<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Geography" name="Geographyrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "History" value="History"     /> History<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="History" name="Historyrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Languages" value="Languages"     /> Languages<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Languages" name="Languagesrange" min="0" max="5"  step="1"/><br>
+          
+           <input type="checkbox" name="interest" id = "Law" value"=Law"     /> Law<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Law" name="Lawrange" min="0" max="5"  step="1"/><br>
+           </div>
+          <div class="col-sm-6">
+           <input type="checkbox" name="interest" id = "Marketing" value="Marketing"     /> Marketing<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Marketing" name="Marketingrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Media" value="Media"     /> Media<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Media" name="Mediarange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Music" value="Music"     /> Music<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Music" name="Musicrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Philosophy" value="Philosophy"     /> Philosophy<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Philosophy" name="Philosophyrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Politics" value="Politics"     /> Politics<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Politics" name="Politicsrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Programming" value="Programming"     /> Programming<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Programming" name="Programmingrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Psychology" value="Psychology"     /> Psychology<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Psychology" name="Psychologyrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Research" value="Research"     /> Research<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Research" name="Researchrange" min="0" max="5"  step="1"/><br>
+           
+           <input type="checkbox" name="interest" id = "Science" value="Science"     /> Science<br>
+           <input  style="display:inline;width:80%;margin-left:30px"   class="range-slider__range" type="range" id="Science" name="Sciencerange" min="0" max="5"  step="1"/><br>
+         <br>
+           <input type="submit" class="btn btn-danger" id="subinterests" value="Submit" name="submit"></input>
+           <input  style="width:80px" class="btn btn-default" id="closeinterests" value="Close" name="close"></input>
+         </div>
+   
+
+            
+         </ul>
+         </form>
+              </div>
+             </div>
+         
+      
+      <!--
       <div id="interests"></div>
         <div>
-          <input type="checkbox" name="interest" id = "checkbox_id" value= '<img src="/static/images/animation.jpg" id="animation" alt="animation" class="img-rounded interest_pic" style= "width: 150px; height: 150px"'/>
+          
+          <img src="/static/images/animation.jpg" id="animation" alt="animation" class="img-rounded interest_pic" style= "width: 150px; height: 150px">
           <a href=""><img src="/static/images/business.jpg" id="business" alt="business" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
           <a href=""><img src="/static/images/communication.jpg" id="communication" alt="communication" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
           <a href=""><img src="/static/images/culture.jpg" id= "culture" alt="animation" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
@@ -91,11 +213,36 @@
           <a href=""><img src="/static/images/psychology.jpeg" id="psychology" alt="psychology" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
           <a href=""><img src="/static/images/research.jpg" id="research" alt="research" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
           <a href=""><img src="/static/images/science.jpg" id="science" alt="science" class="img-rounded interest_pic" style= "width: 150px; height: 150px"></a>
-          
-        
-          
+        </div> -->
+        <div>
+          <span>
+            
+          </span>
         </div>
       </div>
+      <br>
+      </div>
+      <br>
+   </div>
+      
+  
+
+   <!--<form>
+  <input style="margin-left:0%;width:200px;float:left;"type="file" name="image" class="form-control" />
+  <button style="width:70px;" class="btn btn-danger btn-block, mybut" type="submit">Upload</button>
+  </form>-->
+  
+   </div>
+  
+      <script>
+      /*global localStorage */
+      
+         
+      </script>
+      <br>
+         <div>
+        {% include "footer.html" %}  
       </div>
      
   {% endblock %}
+  

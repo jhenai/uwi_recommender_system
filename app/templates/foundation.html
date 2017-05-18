@@ -13,25 +13,45 @@
 		</div>
 	{% endif %}
 {% endwith %}
- <div class="container" style="margin-left: 30px; width: 60%; float:left">
-     <ul>
-    {% for course in foundation_recommend %}
+
+
+ <div class="container" style="margin-left: 5px; width: 100%; float:left;">
+  <h2>&nbsp;Available courses for foundation</h2>
+    {% for course,desc,grade,title in foundation_recommend %}
+    <div class= 'course_container'>
+ 	  <div class="course_icon" onclick ="add('{{course}}')" id='{{course}}'>
+    
+    
+   	<p>{{course}}</p>
+ 	  </div>
+ 	  
+    <div class= 'course_content'>
+    	<p class= 'course_desc'>
+    		<span class="course_title"> {{title}} </span> <br>
+			
+			<span class="cdesc"> {{desc}} </span>
+			<div class="pred_grade">{% for g in grade %}{{g|safe}}{% endfor %}</div>
+    	</p>
+   </div>
     
    
-   
-    <input type="checkbox" name="recommendation" value="choice">{{course}}<br>
-   
-    {% endfor %}
- </ul>
-  </div>
+    </div>
+     {% endfor %}
+ 
 
+ <div class="alert alert-danger alert-dismissable fade in alert-link">
+    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>Tip!</strong> {{info|safe}}  </div>
+ 
   
-  <div class="container" style="float: left; border-style: dotted solid; width:35%; position: relative; margin-left: 5px">
-    <h3>Recommended Courses</h3>
 
-  </div>
-</div>
 
+ </div> 
+  
+
+         <div>
+   
+      </div>
 
    
    

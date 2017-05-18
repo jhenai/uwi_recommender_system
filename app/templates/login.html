@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>HOW TO: Get You The Fuck Outta Here!</title>
+    <title>Course Recommender System<</title>
 
     <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +20,7 @@
     
     <link rel="stylesheet" href="/static/css/app.css">
     <link href="/static/css/profile.css" rel="stylesheet">
+  
     
     <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
 
@@ -27,43 +28,28 @@
   </head>
   <body>
     <header>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default nav_style">
   
     <!-- Brand and toggle get grouped for better mobile display -->
    
       
-      <a class="navbar-brand" href="/"><img style= "max-width:120px; max-height:70px" alt="Brand" src="/static/images/uwi_crest1.jpg"></a>
-      <h2>UWI Recommender System</h2>
-      
-      
-    
+      <a class="navbar-brand" href="/"><img style= "max-width:120px; max-height:45px" alt="Brand" src="/static/images/uwi_crest1.jpg"></a>
+      <h2>UWI Course Recommender System</h2>
     </nav>
     </header>
-    
+     
 
+ <div>
+   <div id='redfade'>
+     <div id='introbuttons'>
+       <div class='introbutton' onclick="location.href = 'https://recommederwebsite-aizeek1.c9users.io/'">Learn More</div> <div class='introbutton intrologin'>Log In</div>
+      
+       </div>
+   </div>
+   <img src="static/images/graduates.jpg" alt="Smiley face" id='graduatesimg'></div>
 
-<form class="form-login" action="/login" method="post">
-  <h2>Please sign in</h2>
-  {% if error %}
-    <div class="alert alert-danger">
-      <strong>Error:</strong> {{ error }}
-    </div>
-  {% endif %}
- 
-  <div class="form-group">
-    <label for="username" class="sr-only">ID Number</label>
-    <input type="text" id="username" name="username" class="form-control" placeholder="620000000" required >
-  </div>
-  <div class="form-group">
-    <label for="password" class="sr-only">Password</label>
-    <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-  </div>
-  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-</form>
-	
-			{{var}}
-			
-			{% with messages = get_flashed_messages() %}
+<div  align="center" class='loginform' style="margin:auto;padding-top:100px">
+  {% with messages = get_flashed_messages() %}
 	{% if messages %}
 		<div class="alert alert-success">
 			<ul class="flashes">
@@ -74,6 +60,29 @@
 		</div>
 	{% endif %}
 {% endwith %}
+<br>
+<form class="form-login" action="/login" method="post">
+  <h2>Please sign in</h2><hr style="width:80% ">
+  {% if error %}
+    <div class="alert alert-danger">
+      <strong>Error:</strong> {{ error }}
+    </div>
+  {% endif %}
+
+  <div class="form-group">
+    <label for="username" >ID Number</label>
+    <input style="width:300px;" type="text" id="username" name="username" class="form-control" placeholder="620000000" required >
+  </div><br>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input style="width:300px;" type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+  </div><br>
+  <button style="width:70px;" class="btn btn-danger btn-block, mybut" type="submit">Sign in</button>
+</form>
+	</div><br>
+			{{var}}
+			
+			
 			
 			
  <footer>
@@ -85,6 +94,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
   
+  <script>
+  /*global $ */
+    $(".intrologin").click(function() {
+    $('html,body').animate({
+        scrollTop: $(".loginform").offset().top},
+        'slow');
+});
+  </script>  
     
   </body>
 </html>

@@ -13,23 +13,115 @@
 		</div>
 	{% endif %}
 {% endwith %}
-  <div class="container" style="margin-left: 30px; width: 60%; float:left">
-    <ul>
-    {% for course in minor_recommend %}
-    <input type="checkbox" name="recommendation" value="choice">{{course}}<br>
-   
-    {% endfor %}
- </ul>
-  </div>
-  
-  
-  <div class="container" style="float: left; border-style: dotted solid; width:35%; position: relative; margin-left: 5px">
+
+
+
+ <div class="container" style="width: 100%; float:left;">
+    {% if minor == None %}
+    	<h2><span class="glyphicon glyphicon-ban-circle"></span> No minor to select courses </h2>
+    {% else %}
+    <h2>&nbsp;Available courses for your minor</h2>
     
-    <h3>Recommended Courses</h3>
+    <div align="center" class="minorheading">
+    	<h3>Mandatory Courses</h3>
+    	<h5>You are required to complete all the courses listed from this section.</h5>
+    </div>
+    {% if maincourses == True %}
+    <br>
+		 <div class="alert alert-success" style=" margin-left:7.5em;">
+		 <strong>Success!</strong> You have completed the necessary course(s) from this section.
+	     </div>
+ 	{% else %}
+	    <!--<div class="alert alert-danger">-->
+	    <br>
+	    <div class='alert alert-danger majmand_heading'>
+	    
+	    {{maincourses|safe}} 
+	    </div>
+	    <!--</div>-->
+  	{% endif %}
+  	
+    
+    {% for desc,course,grade,title in maincourse %}
+    <!--<a href="#" data-toggle="tooltip" data-placement="top" title="{{desc}}"><input type="checkbox" name="recommendation" onchange ="addCourse(this)" value="{{course}}" >{{course}}</a><br>-->
+    <div class= 'course_container'>
+    <div class="course_icon" onclick ="add('{{course}}')" id='{{course}}'>
+   	<p>{{course}}</p>
+ 	  </div>
+    <div class= 'course_content'>
+    	<p class= 'course_desc'>
+    		<span class="course_title"> {{title}}</span><br>
+			<span class="cdesc"> {{desc}} </span>
+			<div class="pred_grade">{% for g in grade %}{{g|safe}}{% endfor %}</div>
+	 	</p>
+   </div>
+    </div>
+    {% endfor %}
+   <br>
+   <div class="minorheading" align='center'>
+   <h3> Selective Courses</h3>
+   <h5> These are the selective courses from which you will be required to complete a certain number. <!--( Explain what this section is and what is required )--> </h5>
+   </div>
+     {% if othercourses == True %}
+     <br>
+		 <div class="alert alert-success" style=" margin-left:7.5em;">
+		 <strong>Success!</strong> You have completed the necessary course(s) from this section, you have the option of selecting a course below as a free elective.
+	     </div>
+ 	{% else %}
+ 	<br>
+	    <div class="alert alert-danger">
+	   
+	    {{othercourses|safe}}  </div>
+  	{% endif %}
+     <br>
+    
+    {% for desc,course,grade,title in othercourse %}
+     <div class= 'course_container'>
+    <div class="course_icon" onclick ="add('{{course}}')" id='{{course}}'>
+    
+    
+   	<p>{{course}}</p>
+ 	  </div>
+ 	  
+    <div class= 'course_content'>
+    	<p class= 'course_desc'>
+    		<span class="course_title"> {{title}} </span> <br>
+			
+			<span class="cdesc"> {{desc}} </span>
+					<div class="pred_grade">{% for g in grade %}{{g|safe}}{% endfor %}</div>
+
+	 	</p>
+   </div>
+    </div>
+    {% endfor %}
+
+ 
+  
+ 	
+ 	{% if mincred == True %}
+		 <div class="alert alert-success">
+		 <strong>Success!</strong> You have met your minor credits to graduate
+	     </div>
+ 	{% else %}
+	    <div align="center" class="alert alert-danger alert-dismissable fade in alert-link">
+	    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    <strong>Tip!</strong> {{mincred|safe}}  </div>
+  	{% endif %}
+  	
+  {% endif %}
+
   </div>
+  
+
+  
+
+  
 </div>
 
 
-   
+     <br>
+         <div>
+     
+      </div>
    
 {% endblock %}

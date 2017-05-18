@@ -1,0 +1,82 @@
+{% extends "recommendations.html" %}
+
+{% block body %}
+<div  class="rec_wrapper">
+ <h2> Search for courses</h2>
+<form  action="/search/" method="post">
+ <div class="form-group" align="center">
+   <br> <input style="width:300px;" type="text"  name="course" class="form-control" placeholder="Search for" required >
+    <button style="width:70px;" class="btn btn-danger btn-block, mybut" type="submit">Search</button>
+  </div>
+  </form>
+  <div class=help>
+  <button type="button" id="search" class="btn btn-danger btn-circle"><i class="glyphicon glyphicon-question">?</i></button>HELP</div>
+{% for course,desc,title in search %}
+   <div class= 'course_container'>
+ 	  <div class="course_icon" onclick ="add('{{course}}')" id='{{course}}'>
+    
+     	<p>{{course}}</p>
+ 	  </div>
+ 	  
+    <div class= 'course_content'>
+    	<p class= 'course_desc'>
+    		<span class="course_title">{{title}} </span> <br>
+			
+			<span class="cdesc"> {{desc}} </span>
+			<!--<div class="pred_grade">{% for g in grade %}{{g|safe}}{% endfor %}</div>-->
+    	</p>
+   </div>
+    
+   
+    </div>
+   
+ 
+{% endfor %}
+<br><br>
+
+  <!-- The Modal -->
+<div id="searchModal" class="modal" >
+
+  <!-- Modal content -->
+  <div class="modal-content" >
+    <div class="modal-header">Help
+    <span class="searchclose">&times;</span></div>
+     <div>
+        <div class="modal-body">
+            <ol>
+                <li>
+                    To search for all the courses offered under a course code, write the four letter course code tite and then %. <br>eg FOUN%
+                </li><br>
+                <li>
+                    To search for all the level 1,2 or 3 courses offered under a course code, write the four letter course code tite, the level and then %. <br>eg  MATH1%, MGMT2% OR INFO3%
+                </li><br>
+                <li>
+                  Course codes can be writte  in common letters or capital letters.<br>eg foun1101 or FOUN1101 or Foun1101
+                </li><br>
+                 <li>
+                  Foundation language options includes languages from: Spanish, French, Chinese, Portuguese and Japanese.<br>
+                  eg SPAN%, FREN%, CHIN%, PORT% OR JAPA%
+                </li><br>
+                 <li>
+                  If you have searched for a course code and it was not displayed, that course is not offered in this semester.
+                </li><br>
+
+            </ol>
+            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" id="sclose">Close</button>
+        </div>
+  </div>
+
+</div>
+
+</div>
+  <br>
+         <div>
+   
+      </div>
+
+  {% endblock %}
+
+

@@ -12,26 +12,53 @@
 			</ul>
 		</div>
 	{% endif %}
+	
 {% endwith %}
- <div class="container" style="margin-left: 30px; width: 60%; float:left">
-     <ul>
-    {% for course in major_recommend %}
-    
-    <input type="checkbox" name="recommendation" value="choice" ng-click="addCourse()">{{course}}<br>
+<h2>&nbsp; Available courses for your major</h2>
+<br>
+ <div class="container" style="margin-left: 5px; width: 100%; float:left;">
+  {% for course,desc,grade,title in major_recommend %}
+ <div class= 'course_container'>
+ 	<div class="course_icon" onclick ="add('{{course}}')" id='{{course}}'>
+    	<!--<a href="#" title="{{desc}}"><input type="checkbox" name="recommendation" onchange ="addCourse(this)" value="{{course}}" >{{course}}</a>-->
+ 		<p>{{course}}</p>
+ 	</div>
    
-    {% endfor %}
- </ul>
+    <div class= 'course_content'>
+    	<p class= 'course_desc'>
+    		<span class="course_title"> {{title}} </span> <br>
+			
+			<span class="cdesc"> {{desc}} </span>
+			<div class="pred_grade">{% for g in grade %}{{g|safe}}{% endfor %}</div>
+    	</p>
+   </div>
+    </div>
+ {% endfor %}
+ 
+   <br>
+  	{% if compcredit == True %}
+		 <div class="alert alert-success">
+		 <strong>Success!</strong> You have met the 39 computing credits to graduate
+	     </div>
+ 	{% else %}
+	    <div class="alert alert-danger alert-dismissable fade in alert-link">
+	    <a  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    <strong>Tip!</strong> {{compcredit|safe}}  </div>
+  	{% endif %}
+  
+  
+ 
   </div>
 
 
   
-  <div class="container" style="float: left; border-style: dotted solid; width:35%; position: relative; margin-left: 5px">
-    <h3>Recommended Courses</h3>
-
-  </div>
+  
 </div>
 
-
+  <br>
+         <div>
+     
+      </div>
    
    
 {% endblock %}

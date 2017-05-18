@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>HOW TO: Get You The Fuck Outta Here!</title>
+    <title>Course Recommender System</title>
 
     <!-- Bootstrap -->
     <link href="/static/css/bootstrap.min.css" rel="stylesheet">
     <link rel="shortcut icon" href ="/static/images/uwi_crest1.jpg">
+   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
     <!--
     <script type=text/javascript src="{{url_for('static', filename='app.js') }}"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -25,10 +29,13 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     
-    <link rel="stylesheet" href="/static/css/app.css">
-    <link href="/static/css/profile.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/app.css">
+    <link href="/static/css/profile.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/home.css">
     
     <link href="{{ url_for('static', filename='css/home.css') }}" rel="stylesheet">
+     <link href="{{ url_for('static', filename='css/app.css') }}" rel="stylesheet">
+      <link href="{{ url_for('static', filename='css/profile.css') }}" rel="stylesheet">
 
     {% block css %} {% endblock%}
   </head>
@@ -40,47 +47,43 @@
    
       
       <a class="navbar-brand" href="/"><img style= "max-width:120px; max-height:70px" alt="Brand" src="/static/images/uwi_crest1.jpg"></a>
-      <h2>UWI Recommender System</h2>
+      <h2>UWI Course Recommender System</h2>
       
       <div style="padding-right: 2%" >
       <div>
 
   <!-- Nav tabs -->
-  <ul class="nav nav-tabs navbar-right" role="tablist" >
-    
-    <li role="presentation" class="active"><a href="/home/" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-    <li role="presentation"><a href="/profile/" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+  <ul id="menu" class="nav nav-tabs navbar-right" role="tablist" >
+    <li role="presentation" ><a href="/home/" aria-controls="home" role="tab" data-toggle="tab" >Home</a></li>
+    <li role="presentation" ><a href="/profile/" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
     <li role="presentation"><a href="/recommendations/" aria-controls="Recommendations" role="tab" data-toggle="tab">Recommendations</a></li>
     <li role="presentation"><a href="/progress/" aria-controls="Progress" role="tab" data-toggle="tab">Progress</a></li>
-    <li role="presentation"><a href="/logout/" aria-controls="logout" role="tab" data-toggle="tab">Log out</a></li>
-
-  </ul>
-
-  
-      
-      </div>
+    <li role="presentation"><a href="/logout/" aria-controls="logout" role="tab" data-toggle="tab" onclick='emptySession()'>Log out</a></li>
+</ul></div>
     </div>
-    
     </nav>
     </header>
-    
-    {% block body %}
-        
-    {% endblock %}
-    
+    <div style='display: inline-block'>
+    {% block body %}{% endblock %}
+    </div>
     
    
     <footer>
-       
+       <div class="container">
+        </div>
     </footer>
   
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="/static/js/bootstrap.min.js"></script>
-     <script src="/static/js/app.js"></script>
-      <script src="/static/js/bootstrap.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+     <script src="/static/js/jquery-3.2.1.js"></script>
+     <script src="/static/js/app.js"></script>
+      <script src="/static/js/app2.js"></script>
+            <script src="/static/js/app4.js"></script>
+ <script src="/static/js/app3.js"></script>
+   
+    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-  
+   {% block js %}{% endblock %}
     
   </body>
 </html>
